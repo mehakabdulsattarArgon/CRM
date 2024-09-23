@@ -18,7 +18,9 @@ const ChangePassword = () => {
       setError("Passwords don't match.");
       return;
     }
+    console.log(error);
     console.log(uid);
+    console.log(message);
     try {
       const response = await axios.post(
         `http://182.176.91.106:8002/api/password-reset-confirm/${uid}/${token}/`,
@@ -27,6 +29,8 @@ const ChangePassword = () => {
           confirm_password: confirmPassword,
         }
       );
+      console.log(response);
+
       setMessage("Password has been reset successfully.");
       // history.push("/login");
     } catch (error) {
